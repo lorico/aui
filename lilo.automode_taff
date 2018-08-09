@@ -1,0 +1,387 @@
+#!/bin/bash
+#-------------------------------------------------------------------------------
+#Created by helmuthdu mailto: helmuthdu[at]gmail[dot]com
+#-------------------------------------------------------------------------------
+#This program is free software: you can redistribute it and/or modify
+#it under the terms of the GNU General Public License as published by
+#the Free Software Foundation, either version 3 of the License, or
+#(at your option) any later version.
+#
+#This program is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY; without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#GNU General Public License for more details.
+#
+#You should have received a copy of the GNU General Public License
+#along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#-------------------------------------------------------------------------------
+
+#MAINMENU {{{
+  # 1) Basic Setup
+  # 2) Desktop Environment
+  # 3) Accessories Apps
+  # 4) Development Apps
+  # 5) Office Apps
+  # 6) System Apps
+  # 7) Graphics Apps
+  # 8) Internet Apps
+  # 9) Audio Apps
+  #10) Video Apps
+  #11) Games
+  #12) Web server
+  #13) Fonts
+  #14) Internationalization
+  #15) Extra
+  #16) Clean Orphan Packages
+  MAINMENU="1-13"
+#}}}
+#BASIC SETUP {{{
+  CUPS="y"
+  CUSTOMREPO="n"         # Add custom repositories
+  FIRMWARE="n"           # Install custom firmwares
+  NFS="n"                # distributed file system protocol, allowing a user on a client computer to access files over a network in a manner similar to how local storage is accessed.
+  READAHEAD="y"          # Improving the boot performance
+  SAMBA="n"
+  SSH="y"
+  TLP="y"                # Laptop Power Manager
+  ZRAM="y"               # The zram kernel module provides a compressed block device in RAM. If you use it as swap device, the RAM can hold much more information but uses more CPU.
+  ZSH="y"                # Zsh is a powerful shell that operates as both an interactive shell and as a scripting language interpreter
+  OH_MY_ZSH="y"          # Includes 180+ optional plugins and over 120 themes to spice up your morning, and an auto-update tool so that makes it easy to keep up with the latest updates from the community
+  BETTER_VIDEO_DRIVER="y" # NVIDIA/AMDGPU
+  FONTCONFIG="y"
+  #}}}
+  #ADDITIONAL FIRMWARE {{{
+    # 1) aic94xx-firmware
+    # 2) alsa-firmware
+    # 3) b43
+    # 4) b43legacy
+    # 5) bfa-firmware
+    # 6) bluez-firmware
+    # 7) broadcom-wl
+    # 8) ipw2100
+    # 9) ipw2200
+    #10) libffado [Firmware Audio Devices]
+    #11) libmtp [Android Devices]           # ***
+    #12) libraw1394 [IEE1394 Driver]
+    #13) wd719x-firmware
+    FIRMWARE_OPTIONS="11"
+  #}}}
+#}}}
+#DESKTOP ENVIRONMENT|WINDOW MANAGER {{{
+  # 1) Cinnamon
+  # 2) Deepin
+  # 3) Enlightenment
+  # 4) GNOME
+  # 5) KDE
+  # 6) LXQT
+  # 7) Mate
+  # 8) XFCE
+  # 9) Budgie
+  #10) Awesome
+  #11) Fluxbox
+  #12) i3
+  #13) OpenBox
+  #14) Xmonad
+  DESKTOPENV="10"
+  #KDE {{{
+    # 1) Choqok
+    # 2) Digikam
+    # 3) K3b
+    # 4) Skrooge
+    # 5) Yakuake
+    KDE_OPTIONS="1-5"
+  #}}}
+  #ESSENTIAL APPS [Enlightenment,LXDE,Awesome,Fluxbox,OpenBox] {{{
+    # 1) Display Manager
+    # 2) Dmenu            # dmenu is a fast and lightweight dynamic menu for X
+    # 3) Viewnior         # A simple, fast and elegant image viewer program
+    # 4) Gmrun            # Gmrun (Gnome Completion-Run) is an lightweight application launcher similar to GNOME Run
+    # 5) rxvt-unicode     # rxvt-unicode is a customizable terminal emulator forked from rxvt
+    # 6) Squeeze          # Archive manager for the Xfce Desktop Environment (git checkout)
+    # 7) Thunar           # Thunar is a modern file manager for the Xfce Desktop Environment.
+    # 8) Tint2            # tint2 is a system panel/taskbar for Linux. It is described by its developers as "simple, unobtrusive and light".
+    # 9) Volwheel         # Tray icon to change volume with the mouse
+    #10) Xfburn           # A simple CD/DVD burning tool based on libburnia libraries
+    #11) Xcompmgr         # Xcompmgr is a simple composite manager capable of rendering drop shadows and, with the use of the transset utility, primitive window transparency
+    #12) Zathura          # Zathura is a highly customizable and functional document viewer with vi-styled keybindings
+    #13) speedtest-cli    # Command line interface for testing internet bandwidth using speedtest.net
+    MISCAPPS="1 2 3 4 5 7 8 9 11 13"
+  #}}}
+  #DISPLAY MANAGER {{{
+    # 1) Elsa
+    # 2) GDM
+    # 3) LightDM
+    # 4) SDDM
+    # 5) Slim
+    DISPLAY_MANAGER="3"
+  #}}}
+  # 1) Icons Themes
+  # 2) GTK2|GTK3 Themes
+  THEMES_OPTIONS="1"
+  #ICONS THEMES {{{
+    # 1) Numix
+    # 2) Papirus
+    ICONS_THEMES="1"
+  #}}}
+  #GTK THEMES {{{
+    # 1) Arc
+    GTK_THEMES="1"
+  #}}}
+#}}}
+#NETWORK MANAGER {{{
+  # 1) NetworkManager
+  # 2) Wicd
+  # 3) ConnMan
+  # n) None
+  NETWORKMANAGER="1"
+  USBMODEM="y" #USB 3G MODEM SUPPORT
+  BLUETOOTH="y" #BLUETOOTH SUPPORT
+#}}}
+#ACCESSORIES {{{
+  # 1) Albert               # A sophisticated standalone keyboard launcher
+  # 2) Catfish              # Versatile file searching tool
+  # 3) Conky                # Conky is a system monitor software for the X Window System
+  # 4) Enpass               # A multiplatform password manager
+  # 5) keepass              # KeePass is an encrypted password database format
+  # 6) Pamac                # A Gtk3 frontend for libalpm
+  # 7) Shutter|Hotshots     # Screenshots
+  # 8) Synapse              # A semantic file launcher
+  # 9) Terminator           # Terminator is a terminal emulator which supports tabs and multiple resizable terminal panels in one window.
+  #10) Tilix                # A tiling terminal emulator based on GTK+ 3 (git master)
+  ACCESSORIES_OPTIONS="2 3 7 9"
+#}}}
+#DEVELOPEMENT {{{
+  # 1) Atom
+  # 2) Emacs
+  # 3) Gvim
+  # 4) Meld                 # Compare files, directories and working copies
+  # 5) Sublime Text 2
+  # 6) Sublime Text 3       # ***
+  # 7) Android Studio
+  # 8) Jetbrains Toolbox
+  # 9) IntelliJ IDEA
+  #10) IntelliJ IDEA Ultimate Edition
+  #11) Monodevelop          # An IDE primarily designed for C# and other .NET languages
+  #12) QT Creator           # Lightweight, cross-platform integrated development environment
+  #13) MySQL Workbench
+  #14) OpenJDK 8
+  #15) OpenJDK 9
+  #16) OpenJDK 10           # Official
+  #17) OracleJDK            # AUR
+  #18) NodeJS
+  #19) Microsoft Visual Studio Code
+  #20) Git GUI-s
+  #21) kdiff3               # A KDE file comparator/merge tool
+  #22) Regexxer             # Interactive search and replace tool for GNOME
+  #23) Postman              # Build, test, and document your APIs faster
+  #24) Gitkraken
+  DEVELOPMENT_OPTIONS="4 6 16 21"
+#}}}
+#OFFICE {{{
+  # 1) Abiword+Gnumeric|Calligra
+  # 2) Calibre                      # Ebooks
+  # 3) Goldendict                   # Dicts
+  # 4) Homebank
+  # 5) Latex
+  # 6) LibreOffice
+  # 7) Lyx                          # An advanced WYSIWYM document processor & LaTeX front-end
+  # 8) OCRFeeder                    # GTK+ document layout analysis and optical character recognition application
+  # 9) Tellico                      # A collection manager for KDE
+  #10) Typora                       # Typora will give you a seamless experience as both a reader and a writer (markdown editor)
+  #11) Xmind                        # Brainstorming and Mind Mapping Software
+  OFFICE_OPTIONS="2 6 11"
+#}}}
+#SYSTEM TOOLS {{{
+  # 1) ClamAV                       # Clam AntiVirus is an open source (GPL) anti-virus toolkit for UNIX
+  # 2) Cockpit                      # A systemd web based user interface for Linux servers
+  # 3) Webmin                       # Webmin is a web-based interface for system administration for Unix
+  # 4) Docker
+  # 5) FirewallD
+  # 6) Gparted
+  # 7) Grsync                       # GTK+ GUI for rsync to synchronize folders, files and make backups
+  # 8) Hosts Update                 # Injects the mvps blocklist to /etc/hosts to prevent thousands of parasites, hijackers and unwanted adware/spyware/privacy websites from working
+  # 9) Htop
+  #10) UFW                          # Ufw stands for Uncomplicated Firewall, and is a program for managing a netfilter firewall. It provides a command line interface and aims to be uncomplicated and easy to use
+  #11) Unified Remote               # Unified Remote Server
+  #12) Virtualbox
+  #13) Wine
+  #14) netdata                      # netdata is a system for distributed real-time performance and health monitoring
+  #15) nload                        # Monitors network traffic and bandwidth usage
+  #16) vmware-workstation12
+  SYSTEMTOOLS_OPTIONS="4 6 7 8 9 13 15"
+#}}}
+#GRAPHICS {{{
+  # 1) Blender
+  # 2) Gimp
+  # 3) Gthumb
+  # 4) Inkscape
+  # 5) MComix             # A user-friendly, customizable image viewer specifically designed to handle comic books
+  # 6) Mypaint
+  # 7) Pencil             # Sketching and GUI prototyping/wireframing tool
+  # 8) Scribus            # Desktop publishing software
+  # 9) Shotwell
+  #10) Simple Scan
+  #11) YACReader          # A comic reader for cross-platform reading and managing your digital comic collection
+  GRAPHICS_OPTIONS="3 6"
+#}}}
+#INTERNET {{{
+  # 1) Browser
+  # 2) Download|Fileshare
+  # 3) Email|RSS
+  # 4) Instant Messaging|IRC
+  # 5) Mapping Tools
+  # 6) VNC|Desktop Share
+  INTERNET_OPTIONS="1-6"
+  #BROWSER {{{
+    # 1) Chrome
+    # 2) Chromium
+    # 3) Firefox
+    # 4) Midori|Konqueror
+    # 5) Opera
+    # 6) Vivaldi            # Based on Opera
+    # 7) Tor-browser
+    BROWSERS_OPTIONS="1 2"
+  #}}}
+  #DOWNLOAD|FILESHARE {{{
+    #  1) Deluge                      # Deluge is a full-featured BitTorrent application written in Python 2
+    #  2) Dropbox
+    #  3) Flareget                    # A full featured, advanced, multi-threaded, multisegment download manager and accelerator
+    #  4) Google Drive OCamlFuse      # FUSE-based file system backed by Google Drive, written in OCaml
+    #  5) Jdownloader
+    #  6) qBittorrent
+    #  7) Nitroshare                  # Network File Transfer Application
+    #  8) Resilio Sync                # Resilio Sync (formerly: BitTorrent Sync or BTSync) is a proprietary file sharing system that relies on the BitTorrent protocol
+    #  9) Sparkleshare                # Collaboration and sharing tool based on git written in C Sharp
+    # 10) Spideroak                   # spideroak client ?
+    # 11) Tixati                      # A simple P2P client that is compatible with the BitTorrent protocol
+    # 12) Transmission
+    # 13) uGet                        # GTK+ download manager featuring download classification and HTML import
+    # 14) Youtube-dl                  # cli downloader for many sites (not only youtube) - ADD youtube-dl-gui-git MANUALLY TOO !
+    DOWNLOAD_OPTIONS="2 12 14"
+  #}}}
+  #EMAIL|RSS {{{
+    # 1) Liferea                  # A desktop news aggregator for online news feeds and weblogs
+    # 2) Thunderbird
+    EMAIL_OPTIONS=""
+  #}}}
+  #IM|IRC {{{
+    # 1) HexChat|Konversation     # HexChat is a multi-platform IRC client for GTK+.
+    # 2) Irssi                    # irssi is a modular, ncurses based IRC (Internet Relay Chat) client. It also supports SILC and ICB protocols via plugins.
+    # 3) Pidgin                   # Pidgin is an easy to use and free chat client used by millions. Connect to Google Talk, ICQ, IRC, XMPP, and more chat networks all at once
+    # 4) Skype Stable
+    # 5) Skype Preview
+    # 6) Teamspeak                # TeamSpeak is proprietary Voice over IP software that allows computer users to speak on a chat channel with fellow computer users, much like a telephone conference call
+    # 7) Viber                    # Proprietary cross-platform IM and VoIP software
+    # 8) Telegram Desktop         # Official Telegram Desktop client
+    # 9) qTox                     # Powerful Tox client written in C++/Qt that follows the Tox design guidelines (SECURE CHAT)
+    # 10) Discord                 # All-in-one voice and text chat for gamers that's free and secure
+    # 11) Slack
+    # 12) VK Messanger            # VK Messenger for Linux
+    # 13) Zoom.us                 # Video Conferencing and Web Conferencing Service (ZOOM)
+    IM_OPTIONS="3 4 13"
+  #}}}
+  #MAPPING {{{
+    # 1) Google Earth
+    # 2) QGIS                     # Geographic Information System (GIS) that supports vector, raster & database formats (open google earth)
+    MAPPING_OPTIONS=""
+  #}}}
+  #VNC|Desktop Share {{{
+    # 1) Remmina                  # Remmina is a remote desktop client written in GTK+ from the freerdp project. It supports the protocols SSH, VNC, RDP, NX and XDMCP
+    # 2) Teamviewer               # All-In-One Software for Remote Support and Online Meetings
+    VNC_OPTIONS="1"
+  #}}}
+#}}}
+#AUDIO {{{
+  # 1) Players
+  # 2) Editors|Tools
+  # 3) Codecs
+  AUDIO_OPTIONS="1-3"
+  #PLAYERS {{{
+    # 1) Amarok
+    # 2) Audacious
+    # 3) Clementine
+    # 4) Deadbeef
+    # 5) Guayadeque
+    # 6) Musique
+    # 7) Pragha
+    # 8) Rhythmbox
+    # 9) Spotify
+    #10) Timidity++               # Converts & Play MIDI to WAV
+    #11) quodlibet
+    AUDIO_PLAYER_OPTIONS=""
+  #}}}
+  #EDITORS|TOOLS {{{
+    # 1) Audacity                         # A program that lets you manipulate digital audio waveforms
+    # 2) Easytag                          # Simple application for viewing and editing tags in audio files
+    # 3) OcenAudio                        # Cross-platform, easy to use, fast and functional audio editor
+    # 4) Soundconverter|Soundkonverter    # A simple sound converter application for GNOME
+    AUDIO_EDITOR_OPTIONS=""
+  #}}}
+#}}}
+#VIDEO {{{
+  # 1) Players
+  # 2) Editors|Tools
+  # 3) Codecs
+  VIDEO_OPTIONS="1-3"
+  #PLAYERS {{{
+    # 1) Gnome Mplayer
+    # 2) LiveStreamer
+    # 3) Minitube                   # A native YouTube client in Qt. Watch YouTube videos without Flash Player
+    # 4) MPV                        # a free, open source, and cross-platform media player
+    # 5) Parole                     # Modern media player based on the GStreamer framework
+    # 6) Plex                       # Plex CLIENT
+    # 7) Popcorn Time               # Stream movies from torrents. Skip the downloads. Launch, click, watch
+    # 8) VLC
+    # 9) Kodi                       # media center (like Plex, but free)
+    VIDEO_PLAYER_OPTIONS="1 8"
+  #}}}
+  #EDITORS|TOOLS {{{
+    # 1) Arista                     # Easy to use multimedia transcoder for the GNOME Desktop
+    # 2) Avidemux                   # Graphical tool to edit video (filter/re-encode/split) - Qt GUI
+    # 3) Filebot                    # The ultimate tool to rename TV/anime shows, download subtitles, and validate checksums
+    # 4) Handbrake                  #  Multithreaded video transcoder
+    # 5) Kdenlive                   # A non-linear video editor for Linux using the MLT video framework
+    # 6) Lightworks                 # Lightworks is a professional video editing suite
+    # 7) Openshot                   # an open-source, non-linear video editor for Linux based on MLT framework
+    # 8) Pitivi                     # Editor for audio/video projects using the GStreamer framework
+    # 9) Transmageddon              # Simple python application for transcoding video into formats supported by GStreamer
+    VIDEO_EDITOR_OPTIONS=""
+  #}}}
+#}}}
+#GAMES {{{
+  #1) Desura                        # dead plateform?
+  #2) PlayOnLinux                   # GUI for managing Windows programs under linux
+  #3) Steam
+  #4) Minecraft
+  GAMES_OPTIONS=""
+#}}}
+#WEBSERVER {{{
+  # 1) LAMP - APACHE, MariaDB & PHP
+  # 2) LAPP - APACHE, POSTGRESQL & PHP
+  # 3) LEMP - NGINX, MariaDB & PHP
+  # 4) LEPP - NGINX, POSTGRESQL & PHP
+  WEBSERVER=""
+  POSTGIS="n"
+#}}}
+#FONTS {{{
+  # 1) ttf-dejavu
+  # 2) ttf-fira-code
+  # 3) ttf-google-webfonts
+  # 4) ttf-liberation
+  # 5) ttf-bitstream-vera
+  # 6) ttf-hack
+  # 7) ttf-mac-fonts
+  # 8) ttf-ms-fonts
+  # 9) wqy-microhei
+  #10) noto-fonts-cjk
+  FONTS_OPTIONS="1-9"
+#}}}
+#IME INPUT TOOLS  {{{
+  # 1) fcitx
+  # 2) ibus
+  IME_OPTIONS=""
+#}}}
+#EXTRA {{{
+  # 1) Profile Sync                 # Syncs browser profiles to tmpfs reducing SSD/HDD calls and speeding-up browsers
+  EXTRA_OPTIONS=""
+#}}}
